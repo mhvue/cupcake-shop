@@ -1,4 +1,3 @@
-import { type } from "os";
 import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm";
 import { Order } from "./Order";
 //associate orders with a customer 

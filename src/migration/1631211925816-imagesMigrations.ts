@@ -1,11 +1,14 @@
-import {MigrationInterface, QueryRunner} from "typeorm";
+import { getRepository, MigrationInterface, QueryRunner } from "typeorm";
+import { ImagesSeed } from "../seeds/images.seed";
 
 export class imagesMigrations1631211925816 implements MigrationInterface {
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
+    public async up(queryRunner: QueryRunner): Promise<any> {
+         const images = await getRepository("Image").save(ImagesSeed);
+     
     }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
+    public async down(queryRunner: QueryRunner): Promise<any> {
     }
 
 }

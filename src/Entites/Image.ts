@@ -14,6 +14,6 @@ export class Image extends BaseEntity {
     @Column()
     description!: string;
 
-    @Column()
+    @Column("decimal", {precision: 4, scale: 2})
     cost!: number
 }
