@@ -1,13 +1,20 @@
 import express from "express";
 import { Customer } from "../../Entites/Customer";
 import { Order } from "../../Entites/Order";
+import { Image } from "../../Entites/Image";
+import { getRepository } from "typeorm";
+
 
 const router = express.Router();
 
 //get route to display all the cupcake images, cupcake info, cupcake info and price 
-router.get("/api/cupcakeInfo", (req,res) => {
-    res.send("we will have show cupcake inforamtion here")
-
+router.get("/api/cupcakeInfo", async (req,res) => { 
+        const imagesRepository = getRepository(Image)
+        const images = await imagesRepository.find()
+        return res.json({
+            image: images
+        })
+    
 });
 
 //create a customer
@@ -72,7 +79,7 @@ router.delete("/api/customer/:customerId", async (req,res) => {
     return res.json(response)
 })
 
-//delete an order only
+//delete an order only by a specific customer 
 
 export {
     router as createClientRouter
