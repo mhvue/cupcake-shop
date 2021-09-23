@@ -13,7 +13,7 @@ router.get("/api/cupcakeInfo", async (req,res) => {
         const images = await imagesRepository.find()
         return res.json({
             image: images
-        })
+        });
     
 });
 

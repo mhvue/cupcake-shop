@@ -5,7 +5,6 @@ import cors from "cors";
 import {Connection, createConnection} from "typeorm";
 import { createClientRouter } from "./routes/apiRoutes/apiRoutes";
 
-
 const app = express();
 const PORT = 3030 
 dotenv.config();
