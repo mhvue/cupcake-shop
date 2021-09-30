@@ -5,16 +5,20 @@ import About from './components/About';
 import Cart from './components/Cart';
 import Cupcake from './components/Cupcake';
 import Contact from './components/Contact';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch} from 'react-router-dom';
+import NoMatch from './components/NoMatch';
 
 function App() {
   return (
     <Router>
       <div>
-        <Route exact path="/" component={About} />
-        <Route exact path="/cupcakes" component={Cupcake} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/cart" component={Cart} />
+        <Switch>
+          <Route exact path="/" component={About} />
+          <Route exact path="/cupcakes" component={Cupcake} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/cart" component={Cart} />
+          <Route component={NoMatch} />
+        </Switch>
       </div>
     </Router>
   );
